@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageRecognition.Web.Api", "src\ImageRecognition.Web.Api\ImageRecognition.Web.Api.csproj", "{F51CBD3C-50DD-4754-90E7-0B45F2A21D53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageRecognition.Web.Client", "src\ImageRecognition.Web.Client\ImageRecognition.Web.Client.csproj", "{4F69D3C3-4016-4908-BAB6-93D1AF26CADB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageRecognition.Web.Core", "src\ImageRecognition.Web.Core\ImageRecognition.Web.Core.csproj", "{4BAECB04-40F0-4819-A2FE-4CB691B41062}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F51CBD3C-50DD-4754-90E7-0B45F2A21D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51CBD3C-50DD-4754-90E7-0B45F2A21D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51CBD3C-50DD-4754-90E7-0B45F2A21D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51CBD3C-50DD-4754-90E7-0B45F2A21D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F69D3C3-4016-4908-BAB6-93D1AF26CADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F69D3C3-4016-4908-BAB6-93D1AF26CADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F69D3C3-4016-4908-BAB6-93D1AF26CADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F69D3C3-4016-4908-BAB6-93D1AF26CADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BAECB04-40F0-4819-A2FE-4CB691B41062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BAECB04-40F0-4819-A2FE-4CB691B41062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BAECB04-40F0-4819-A2FE-4CB691B41062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BAECB04-40F0-4819-A2FE-4CB691B41062}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F51D3F9-E585-4F3F-BB78-DC60C8694041}
+	EndGlobalSection
+EndGlobal

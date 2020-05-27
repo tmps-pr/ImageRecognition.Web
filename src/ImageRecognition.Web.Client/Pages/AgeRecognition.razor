@@ -1,0 +1,49 @@
+﻿@page "/age-recognition"
+@inject HttpClient Http
+
+<h1>Age recognition</h1>
+
+<InputFile OnChange="HandleSelection" />
+
+@if (predicitons != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Label</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prediction in predicitons)
+            {
+                <tr>
+                    <td>@{
+                        var low = int.Parse(prediction.Key) - 5;
+                        var up = prediction.Key;
+                        
+                        }
+                    @low - @up</td>
+                    <td>@prediction.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Dictionary<string, float> predicitons;
+    async Task HandleSelection(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            MultipartFormDataContent content = new MultipartFormDataContent();
+            content.Add(new StreamContent(file.Data), "file", file.Name);
+            var result = await Http.PostAsync("api/image-recognition/age-recognition", content);
+            HttpContent requestContent = result.Content;
+            string jsonContent = requestContent.ReadAsStringAsync().Result;
+            predicitons = JsonConvert.DeserializeObject<Dictionary<string, float>>(jsonContent);
+        }
+    }
+}

@@ -1,0 +1,45 @@
+﻿@page "/gender-recognition"
+@inject HttpClient Http
+
+<h1>Gender recognition</h1>
+
+<InputFile OnChange="HandleSelection" />
+
+@if (predicitons != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Label</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prediction in predicitons)
+            {
+                <tr>
+                    <td>@prediction.Key</td>
+                    <td>@prediction.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Dictionary<string, float> predicitons;
+    byte[] imageBytes;
+    async Task HandleSelection(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            MultipartFormDataContent content = new MultipartFormDataContent();
+            content.Add(new StreamContent(file.Data), "file", file.Name);
+            var result = await Http.PostAsync("api/image-recognition/gender-recognition", content);
+            HttpContent requestContent = result.Content;
+            string jsonContent = requestContent.ReadAsStringAsync().Result;
+            predicitons = JsonConvert.DeserializeObject<Dictionary<string, float>>(jsonContent);
+        }
+    }
+}
